@@ -3,9 +3,6 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         mySprite.vy = -200
     }
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleBlueCrystal, function (sprite, location) {
-    game.over(true, effects.confetti)
-})
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.oceanDepths7, function (sprite, location) {
     game.gameOver(false)
 })
@@ -14,6 +11,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.coral0, function (sprite,
     if (info.life() == 0) {
         game.gameOver(false)
     }
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
+    game.over(true, effects.confetti)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
